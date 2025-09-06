@@ -8,7 +8,7 @@ export const Wrapper = styled.div`
     min-height: 55px;
     display: flex;
     align-items: center;
-    justify-content: space-evenly;
+    justify-content: center;
     width: 100%;
     z-index: 1;
     .close{
@@ -50,9 +50,14 @@ export const Wrapper = styled.div`
 
     .logo{
         position: absolute;
-        top: 20px;
-        left: 48px;
+        top: 5px;
+        left: 50%;
+        transform: translateX(-50%);
         cursor: pointer;
+    }
+    .logo-img{
+        height: 100px;
+        width: 120px;
     }
     img{
         height: 16px;
@@ -61,12 +66,14 @@ export const Wrapper = styled.div`
 
     @media screen and (max-width: 1150px){
         .logo{
-            left: 30px;
+            left: 50%;
+            transform: translateX(-50%);
         }
     }
     @media screen and (max-width: 400px){
         .logo{
-            left: 10px;
+            left: 50%;
+            transform: translateX(-50%);
         }
     }
 `;

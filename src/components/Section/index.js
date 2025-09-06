@@ -1,11 +1,12 @@
 import React from 'react'
 import { Wrapper,ContentTop,ContentMid,Content } from './section.style'
+import { Link } from 'react-router-dom'
 
-function Section({ title,desc,backgroundImg,link,leftbtn,rightbtn,arrow,range,speed,hp,top }) {
+function Section({ title,desc,backgroundImg,link,leftbtn,rightbtn,arrow,range,speed,hp,top,textAlign }) {
 
     return (
         <Wrapper bg={backgroundImg} >
-            <ContentTop>
+            <ContentTop textAlign={textAlign}>
                 <h1>{title}</h1>
                 <p>{desc} <a href='#'>{link}</a></p>
             </ContentTop>

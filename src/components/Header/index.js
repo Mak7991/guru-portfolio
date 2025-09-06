@@ -1,46 +1,65 @@
-import React,{ useState } from 'react'
-import { Wrapper,Content,Content1 } from './header.style'
-import { Link } from 'react-router-dom';
+import React, { useState } from "react";
+import { Wrapper, Content, Content1 } from "./header.style";
+import { Link } from "react-router-dom";
 
-import SideNav from '../SideNav'
-import CloseIcon from '@mui/icons-material/Close';
+import SideNav from "../SideNav";
+import CloseIcon from "@mui/icons-material/Close";
+import './header.css'
 
 const Header = () => {
+  const [open, setOpen] = useState(false);
 
-    const [open,setOpen] = useState(false);
-
-    return (
-        <>
-        <Wrapper>
-            <div className='logo' >
-            <Link to='/'>
-                <img src='/images/logo.svg' alt='logo'/>
-            </Link>
+  return (
+    <>
+      <Wrapper>
+        <div className="logo">
+          <Link to="/">
+            <img className="logo-img" src="/images/logo.png" alt="logo" />
+          </Link>
+        </div>
+        {/* <Content1>
+          <a href="#" onClick={() => setOpen(true)}>
+            Menu
+          </a>
+        </Content1>
+        {open && (
+          <div className="top">
+            <div className="close" onClick={() => setOpen(false)}>
+              <CloseIcon />
             </div>
-            <Content>
-                <Link to='/models'>Model S</Link>
-                <Link to='/model3'>Model 3</Link>
-                <Link to='/modelx'>Model X</Link>
-                <Link to='/modely'>Model Y</Link>
-                <Link to='#'>Solar Roof</Link>
-                <Link to='#'>Solar Panels</Link>
-            </Content>
-            <Content1>
-                <a href='#' className='none' >Shop</a>
-                <Link to='/login' className='none'>Account</Link>
-                <a href='#' onClick={()=> setOpen(true)} >Menu</a>
-            </Content1>
-            {open && 
-            <div className='top'>
-                <div className='close' onClick={()=> setOpen(false)}>
-                    <CloseIcon/>
-                </div>
-            </div> 
-            }       
-            <SideNav show={open}/>
-        </Wrapper>
-        </>
-    )
-}
+          </div>
+        )} */}
+        <SideNav show={open} />
 
-export default Header
+        <div className="menu-wrap">
+          <input type="checkbox" className="toggler" />
+          <div className="hamburger">
+            <div></div>
+          </div>
+          <div className="menu">
+            <div>
+              <div>
+                <ul>
+                  <li>
+                    <a href="#">Home</a>
+                  </li>
+                  <li>
+                    <a href="#">About Us</a>
+                  </li>
+                  <li>
+                    <a href="#">Our Team</a>
+                  </li>
+                  <li>
+                    <a href="#">Accomplishments</a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </Wrapper>
+    </>
+  );
+};
+
+export default Header;

@@ -3,16 +3,19 @@ import React from "react";
 import { Wrapper,Content } from "./footer.syle";
 
 const Footer = ({bottom}) =>{
+    const getCurrentYear = () => {
+        return new Date().getFullYear();
+    };
 
     return(
         <Wrapper>
             <Content className={bottom} >
                 <div>
-                    <a href="https://github.com/chirag-23/Tesla-clone-reactjs" target='_blank' >Tesla-Clone &copy; 2022</a>
+                    <a href="#" target='_blank' >Tesla-Clone &copy; {getCurrentYear()}</a>
                 </div>
                 <div>
-                    <a href="https://www.linkedin.com/in/chirag-chouhan-b48311228/" target="_blank" >LinkedIn</a>
-                    <a href="https://github.com/chirag-23" target="_blank" >GitHub</a>
+                    <a href="#" target="_blank" >Our Team</a>
+                    <a href="#" target="_blank" >About Us</a>
                 </div>
             </Content>
         </Wrapper>

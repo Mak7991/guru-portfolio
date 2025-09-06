@@ -18,7 +18,7 @@ const ModelS = () =>{
                 <Section 
                 title="Model S" 
                 desc="Plaid" 
-                backgroundImg="model-s.jpg" 
+                backgroundImg="bg16.jpeg" 
                 arrow="true" 
                 range='396'
                 speed='1.99'

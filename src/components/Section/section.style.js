@@ -25,7 +25,36 @@ export const Wrapper = styled.div`
     }
 
     .buttons{
-        margin-bottom: 60px;
+        margin-bottom: 30px;
+    }
+
+    .additional-text {
+        text-align: center;
+        margin-top: 20px;
+        margin-bottom: 40px;
+        animation: fadeInUp 1s ease-out;
+        
+        p {
+            color: rgba(59, 59, 59, 0.8);
+            font-size: 0.9rem;
+            font-weight: 300;
+            letter-spacing: 0.3px;
+            line-height: 1.4;
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+    }
+
+    @keyframes fadeInUp {
+        0% {
+            opacity: 0;
+            transform: translateY(20px);
+        }
+        100% {
+            opacity: 1;
+            transform: translateY(0);
+        }
     }
 
     @keyframes animate {
@@ -47,8 +76,10 @@ export const Wrapper = styled.div`
 `;
 
 export const ContentTop = styled.div`
-    text-align: center;
+    text-align: ${props => props.textAlign || 'center'};
     padding-top: 16vh;
+    padding-left: ${props => props.textAlign === 'left' ? '60px' : '0'};
+    padding-right: ${props => props.textAlign === 'left' ? '60px' : '0'};
     h1{
         font-weight: 400;
         letter-spacing: 0.5px;
@@ -86,6 +117,11 @@ export const ContentTop = styled.div`
             opacity: 1;
         }
     }
+
+    @media screen and (max-width: 768px){
+        padding-left: ${props => props.textAlign === 'left' ? '20px' : '0'};
+        padding-right: ${props => props.textAlign === 'left' ? '20px' : '0'};
+    }
 `;
 
 export const ContentMid = styled.div`
@@ -95,24 +131,39 @@ export const ContentMid = styled.div`
     flex-wrap: wrap;
 
     button{
-        padding: 12px 20px;
-        width: 260px;
-        border-radius: 20px;
+        padding: 12px 24px;
+        width: 280px;
+        border-radius: 25px;
         outline: none;
         border: none;
-        font-size: 0.8rem;
-        font-weight: 400;
-        letter-spacing: 0.6px;
-        opacity: 0.9;
+        font-size: 0.85rem;
+        font-weight: 500;
+        letter-spacing: 0.8px;
+        opacity: 0.95;
+        transition: all 0.3s ease;
+        text-transform: uppercase;
         :hover{
             cursor: pointer;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
         }
     }
 
     .left button{
-        background-color: rgba(23,26,32,1);
+        background-color: rgba(23,26,32,0.9);
         color: white;
         margin-right: 25px;
+        :hover{
+            background-color: rgba(23,26,32,1);
+        }
+    }
+
+    .right button{
+        background-color: rgba(255,255,255,0.8);
+        color: rgba(23,26,32,0.9);
+        :hover{
+            background-color: rgba(255,255,255,1);
+        }
     }
 
     @media screen and (max-width: 600px){
