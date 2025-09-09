@@ -10,17 +10,17 @@ import Footer from "../Footer";
 
 const ModelS = () =>{
 
-    document.title = "Model S | Tesla";
+    document.title = "About Us";
     return(
         <Wrapper>
             <Header/>
             <Content>
                 <Section 
-                title="Model S" 
-                desc="Plaid" 
+                abouUstitle="About Us" 
+                // desc="Plaid" 
                 backgroundImg="bg16.jpeg" 
                 arrow="true" 
-                range='396'
+                range='Where Entrepreneurship Meets Real Estate.'
                 speed='1.99'
                 top='200'
                 hp='1,020'

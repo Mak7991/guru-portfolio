@@ -2,7 +2,7 @@ import { createGlobalStyle } from "styled-components";
 
 export const GlobalStyle = createGlobalStyle`
     :root{
-        --teslaColor : #393c41;
+        --teslaColor : #2D5460;
     }
     *{
         box-sizing: border-box;

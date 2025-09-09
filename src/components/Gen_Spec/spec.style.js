@@ -46,23 +46,44 @@ export const Content = styled.div`
             word-spacing: 1.2px;
             line-height: 25px;
         }
+        
+        ul{
+            color: white;
+            font-weight: 300;
+            font-size: 0.9rem;
+            letter-spacing: 0.3px;
+            line-height: 22px;
+            margin: 15px 0;
+            padding-left: 20px;
+            li{
+                margin-bottom: 8px;
+                position: relative;
+                color: white;
+                marker: white
+                
+                &::marker{
+                    color: var(--teslaColor);
+                    font-size: 1.2rem;
+                }
+            }
+        }
     }
 
     .text{
-        h3, p{
+        h3, p, ul{
             padding-left: 120px;
             padding-right: 20px;
         }
     }
     .text1{
-        h3,p{
+        h3, p, ul{
             padding-right: 120px;
         }
     }
 
     @media screen and (max-width: 750px){
         .col{
-            h3 ,p{
+            h3, p, ul{
                 padding-left: 10px;
                 padding-right: 10px;
             }
@@ -79,6 +100,10 @@ export const Content = styled.div`
             p{
                 font-size: 0.8rem;
                 line-height: 18px;
+            }
+            ul{
+                font-size: 0.75rem;
+                line-height: 16px;
             }
         }
     }

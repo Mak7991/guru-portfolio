@@ -1,12 +1,13 @@
 import styled from "styled-components";
 
 export const Wrapper = styled.div`
-    width: 100vw;
+    width: 100%;
     height: 100vh;
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    background-image:  ${props => `url('/images/${props.bg}')`}; //url is by default in public section
+    background-image:  ${props => `url('/images/${props.bg}')`}; ///url is by default in public section
+    overflow: hidden;
 
     display: flex;
     flex-wrap: wrap;
@@ -36,10 +37,10 @@ export const Wrapper = styled.div`
         
         p {
             color: rgba(59, 59, 59, 0.8);
-            font-size: 0.9rem;
-            font-weight: 300;
+            font-size: 1.1rem;
+            font-weight: 500;
             letter-spacing: 0.3px;
-            line-height: 1.4;
+            line-height: 1.5;
             max-width: 600px;
             margin: 0 auto;
             padding: 0 20px;
@@ -73,6 +74,15 @@ export const Wrapper = styled.div`
             height: 40px;
         }
     }
+    
+    @media screen and (max-width: 480px){
+        height: 100vh;
+        min-height: 100vh;
+        
+        img{
+            height: 35px;
+        }
+    }
 `;
 
 export const ContentTop = styled.div`
@@ -81,27 +91,40 @@ export const ContentTop = styled.div`
     padding-left: ${props => props.textAlign === 'left' ? '60px' : '0'};
     padding-right: ${props => props.textAlign === 'left' ? '60px' : '0'};
     h1{
-        font-weight: 400;
+        font-weight: 700;
         letter-spacing: 0.5px;
-        font-size: 2.5rem;
+        font-size: 3.2rem;
         color: var(--teslaColor);
+        line-height: 1.2;
+        
+        &.abouUstitle {
+            font-size: 2.8rem;
+            font-weight: 600;
+            color: rgba(45, 84, 96, 0.8);
+            margin-bottom: 10px;
+        }
     }
     p{
-        font-size: 0.9rem;
-        padding: 5px;
-        color: rgba(59, 59, 59, 0.753);
+        font-size: 1.1rem;
+        font-weight: 500;
+        padding: 8px 5px;
+        color: #2D5460;
+        line-height: 1.5;
     }
     a{
         text-decoration: underline;
         text-underline-position: under;
         display: inline-block;
-        color: rgba(59, 59, 59, 0.753);
+        color: #2D5460;
         transition: color 200ms ease-in;
 
         :hover{
             color: var(--teslaColor);
             text-decoration-thickness: 2px;
         }
+    }
+    h1.abouUstitle{
+        color: #ECEEF2;
     }
 
     animation: transform 1s;
@@ -121,6 +144,36 @@ export const ContentTop = styled.div`
     @media screen and (max-width: 768px){
         padding-left: ${props => props.textAlign === 'left' ? '20px' : '0'};
         padding-right: ${props => props.textAlign === 'left' ? '20px' : '0'};
+        padding-top: 12vh;
+        
+        h1{
+            font-size: 2.5rem;
+            font-weight: 700;
+            
+            &.abouUstitle {
+                font-size: 2.2rem;
+            }
+        }
+    }
+    
+    @media screen and (max-width: 480px){
+        padding-top: 10vh;
+        padding-left: ${props => props.textAlign === 'left' ? '15px' : '0'};
+        padding-right: ${props => props.textAlign === 'left' ? '15px' : '0'};
+        
+        h1{
+            font-size: 2rem;
+            font-weight: 700;
+            
+            &.abouUstitle {
+                font-size: 1.8rem;
+            }
+        }
+        
+        p{
+            font-size: 1rem;
+            font-weight: 500;
+        }
     }
 `;
 
@@ -149,20 +202,30 @@ export const ContentMid = styled.div`
         }
     }
 
-    .left button{
-        background-color: rgba(23,26,32,0.9);
-        color: white;
-        margin-right: 25px;
-        :hover{
-            background-color: rgba(23,26,32,1);
+    .left {
+        a {
+            text-decoration: none;
+        }
+        button{
+            background-color: rgba(23,26,32,0.9);
+            color: white;
+            margin-right: 25px;
+            :hover{
+                background-color: rgba(23,26,32,1);
+            }
         }
     }
 
-    .right button{
-        background-color: rgba(255,255,255,0.8);
-        color: rgba(23,26,32,0.9);
-        :hover{
-            background-color: rgba(255,255,255,1);
+    .right {
+        a {
+            text-decoration: none;
+        }
+        button{
+            background-color: rgba(255,255,255,0.8);
+            color: rgba(23,26,32,0.9);
+            :hover{
+                background-color: rgba(255,255,255,1);
+            }
         }
     }
 
@@ -216,6 +279,9 @@ export const Content = styled.div`
             font-weight: 200;
             font-size: 0.8rem;
             letter-spacing: 0.3px;
+        }
+        a {
+            text-decoration: none;
         }
         button{
             outline: none;

@@ -1,9 +1,8 @@
 import React, { useState } from "react";
-import { Wrapper, Content, Content1 } from "./header.style";
+import { Wrapper } from "./header.style";
 import { Link } from "react-router-dom";
 
 import SideNav from "../SideNav";
-import CloseIcon from "@mui/icons-material/Close";
 import './header.css'
 
 const Header = () => {
@@ -29,7 +28,7 @@ const Header = () => {
             </div>
           </div>
         )} */}
-        <SideNav show={open} />
+        {/* <SideNav show={open} /> */}
 
         <div className="menu-wrap">
           <input type="checkbox" className="toggler" />
@@ -41,16 +40,16 @@ const Header = () => {
               <div>
                 <ul>
                   <li>
-                    <a href="#">Home</a>
+                    <a href="/">Home</a>
                   </li>
                   <li>
-                    <a href="#">About Us</a>
+                    <a href="/AboutUs">About Us</a>
                   </li>
                   <li>
-                    <a href="#">Our Team</a>
+                    <a href="/">Our Team</a>
                   </li>
                   <li>
-                    <a href="#">Accomplishments</a>
+                    <a href="/">Accomplishments</a>
                   </li>
                 </ul>
               </div>

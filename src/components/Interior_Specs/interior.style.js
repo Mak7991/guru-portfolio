@@ -22,7 +22,7 @@ export const Wrapper = styled.div`
 `;
 
 export const Content = styled.div`
-    background-image: url('/images/new-interior.jpg');
+    background-image: url('/images/bg20.jpeg');
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;

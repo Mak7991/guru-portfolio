@@ -3,7 +3,6 @@ import { Wrapper,Content } from './home.style'
 
 import Section from './Section'
 import Header from './Header';
-import Footer from './Footer';
 
 function Home() {
 
@@ -11,15 +10,18 @@ function Home() {
     return (
         <>
         <Header/>
-        <Wrapper>
+        <Wrapper data-scroll-container>
             <Content>
                 <Section 
-                    title="About Us" 
+                    title="Turning Vision into Landmarks" 
                     desc="Discover our story and mission" 
-                    link="Learn More"
-                    leftbtn="About Us" 
-                    rightbtn="Read More" 
-                    backgroundImg="bg7.jpeg" 
+                    linkdesc="Learn More"
+                    link="/AboutUs"
+                    leftbtn="About Us"
+                    rightbtn="Read More"
+                    leftbtnUrl="/about"
+                    rightbtnUrl="/learn-more"
+                    backgroundImg="bg14.jpeg" 
                     arrow="true"
                     textAlign="left"
                 />
@@ -28,9 +30,12 @@ function Home() {
                 <Section 
                     title="Our Team" 
                     desc="Meet the experts behind our success" 
-                    link="View Team"
-                    leftbtn="Our Team" 
-                    rightbtn="View more" 
+                    linkdesc="View Team"
+                    link="/"
+                    leftbtn="Our Team"
+                    rightbtn="View More"
+                    leftbtnUrl="/team"
+                    rightbtnUrl="/team-details"
                     backgroundImg="bg2.jpeg" 
                     arrow="true"
                     textAlign="left"
@@ -40,16 +45,19 @@ function Home() {
                 <Section 
                     title="Accomplishments" 
                     desc="Our achievements and milestones" 
-                    link="See All"
-                    leftbtn="Accomplishments" 
-                    rightbtn="View More" 
+                    linkdesc="See All"
+                    link="/"
+                    leftbtn="Accomplishments"
+                    rightbtn="View More"
+                    leftbtnUrl="/accomplishments"
+                    rightbtnUrl="/achievements"
                     backgroundImg="bg3.jpeg"
                     textAlign="left"
                 />
             </Content>
-            <Content>
+            {/* <Content>
                 <Footer/>
-            </Content>
+            </Content> */}
         </Wrapper>
         </>
     )

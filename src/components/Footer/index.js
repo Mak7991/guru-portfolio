@@ -11,11 +11,11 @@ const Footer = ({bottom}) =>{
         <Wrapper>
             <Content className={bottom} >
                 <div>
-                    <a href="#" target='_blank' >Tesla-Clone &copy; {getCurrentYear()}</a>
+                    <a href="/" target='_blank' >Guru Homes &copy; {getCurrentYear()}</a>
                 </div>
                 <div>
-                    <a href="#" target="_blank" >Our Team</a>
-                    <a href="#" target="_blank" >About Us</a>
+                    <a href="/" target="_blank" >Our Team</a>
+                    <a href="/" target="_blank" >About Us</a>
                 </div>
             </Content>
         </Wrapper>
