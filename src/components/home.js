@@ -16,6 +16,7 @@ function Home() {
                     title="Turning Vision into Landmarks" 
                     desc="Discover our story and mission" 
                     linkdesc="Learn More"
+                    // backgroundVideo="video.webm"
                     link="/AboutUs"
                     leftbtn="About Us"
                     rightbtn="Read More"

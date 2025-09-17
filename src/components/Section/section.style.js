@@ -2,17 +2,89 @@ import styled from "styled-components";
 
 export const Wrapper = styled.div`
     width: 100%;
-    height: 100vh;
+    height: ${props => props.fullHeight ? '100vh' : 'auto'};
+    min-height: ${props => props.fullHeight ? '100vh' : '70vh'};
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    background-image:  ${props => `url('/images/${props.bg}')`}; ///url is by default in public section
-    overflow: hidden;
+    background-image: ${props => props.bgVideo ? 'none' : `url('/images/${props.bg}')`};
+    overflow: ${props => props.fullHeight ? 'hidden' : 'visible'};
 
     display: flex;
     flex-wrap: wrap;
     flex-direction: column;
     justify-content: space-between;
+    position: relative;
+
+    .background-video {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        z-index: -1;
+    }
+
+    .video-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.3);
+        z-index: 0;
+    }
+
+    .gradient-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(
+            to bottom,
+            rgba(255, 255, 255, 0.8) 0%,
+            rgba(255, 255, 255, 0.6) 20%,
+            rgba(255, 255, 255, 0.3) 40%,
+            rgba(255, 255, 255, 0.1) 60%,
+            transparent 80%
+        );
+        z-index: 1;
+        pointer-events: none;
+    }
+
+    .content-wrapper {
+        position: relative;
+        z-index: 2;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+
+    .left-content {
+        position: absolute;
+        left: 60px;
+        top: 16vh;
+        z-index: 10;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        
+        .section-range-text {
+            margin-top: 15px;
+            
+            h2 {
+                color: white;
+                font-weight: 400;
+                font-size: 1.8rem;
+                letter-spacing: 0.6px;
+                margin: 0;
+            }
+        }
+    }
 
     img{
         margin-top: 15px;
@@ -95,17 +167,17 @@ export const ContentTop = styled.div`
         letter-spacing: 0.5px;
         font-size: 3.2rem;
         color: var(--teslaColor);
-        line-height: 1.2;
+        line-height: 4;
         
         &.abouUstitle {
             font-size: 2.8rem;
-            font-weight: 600;
-            color: rgba(45, 84, 96, 0.8);
+            font-weight: 700;
+            color: #2D5460;
             margin-bottom: 10px;
         }
     }
     p{
-        font-size: 1.1rem;
+        font-size: 2rem;
         font-weight: 500;
         padding: 8px 5px;
         color: #2D5460;
@@ -124,7 +196,10 @@ export const ContentTop = styled.div`
         }
     }
     h1.abouUstitle{
-        color: #ECEEF2;
+        color: #2D5460;
+    }
+    h2.abdesc{
+        color: #2D5460;
     }
 
     animation: transform 1s;
@@ -153,6 +228,29 @@ export const ContentTop = styled.div`
             &.abouUstitle {
                 font-size: 2.2rem;
             }
+            &.abdesc {
+                font-size: 1.5rem;
+            }
+        }
+
+        .left-content {
+            left: 20px;
+            top: 12vh;
+            
+            .section-range-text h2 {
+                font-size: 1.5rem;
+            }
+        }
+
+        .gradient-overlay {
+            background: linear-gradient(
+                to bottom,
+                rgba(255, 255, 255, 0.9) 0%,
+                rgba(255, 255, 255, 0.7) 25%,
+                rgba(255, 255, 255, 0.4) 50%,
+                rgba(255, 255, 255, 0.2) 70%,
+                transparent 85%
+            );
         }
     }
     
@@ -168,11 +266,34 @@ export const ContentTop = styled.div`
             &.abouUstitle {
                 font-size: 1.8rem;
             }
+            &.abdesc {
+                font-size: 1.5rem;
+            }
         }
         
         p{
             font-size: 1rem;
             font-weight: 500;
+        }
+
+        .left-content {
+            left: 15px;
+            top: 10vh;
+            
+            .section-range-text h2 {
+                font-size: 1.3rem;
+            }
+        }
+
+        .gradient-overlay {
+            background: linear-gradient(
+                to bottom,
+                rgba(255, 255, 255, 0.95) 0%,
+                rgba(255, 255, 255, 0.8) 20%,
+                rgba(255, 255, 255, 0.5) 40%,
+                rgba(255, 255, 255, 0.3) 60%,
+                transparent 80%
+            );
         }
     }
 `;
@@ -261,12 +382,20 @@ export const ContentMid = styled.div`
 `;
 
 export const Content = styled.div`
+    margin-top: ${props => props.fullHeight ? '-10vh' : '0'};
 
 .Info-bar{
         display: flex;
         flex-wrap: wrap;
         justify-content: center;
         align-items: center;
+        width: 100%;
+        text-align: center;
+
+        /* When inside left-content, align to the left */
+        .left-content & {
+            justify-content: flex-start;
+        }
         h2{
         color: white;
         font-weight: 400;
@@ -314,6 +443,12 @@ export const Content = styled.div`
             }
             .Specs{
                 margin: 10px 12px;
+                
+                &.range-text-animated h2 {
+                    font-size: 2rem !important;
+                    text-align: center;
+                    width: 100%;
+                }
             }
             h2{
                 font-size: 1.5rem;
@@ -331,6 +466,28 @@ export const Content = styled.div`
         justify-content: center;
         align-items: center;
         margin: 10px 40px;
+        
+        &.range-text-animated {
+            h2 {
+                font-size: 2.5rem !important;
+                font-weight: 300 !important;
+                letter-spacing: 1px !important;
+                animation: fadeUpFromBottom 1.2s ease-out 0.5s both;
+                text-align: center;
+                width: 100%;
+            }
+        }
+    }
+
+    @keyframes fadeUpFromBottom {
+        0% {
+            opacity: 0;
+            transform: translateY(30px);
+        }
+        100% {
+            opacity: 1;
+            transform: translateY(0);
+        }
     }
 
     animation: transform 1s;

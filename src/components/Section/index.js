@@ -6,6 +6,7 @@ function Section({
   title,
   desc,
   backgroundImg,
+  backgroundVideo,
   link,
   leftbtn,
   rightbtn,
@@ -18,7 +19,9 @@ function Section({
   top,
   textAlign,
   abouUstitle,
-  linkdesc
+  linkdesc,
+  abdesc,
+  fullHeight = true
 }) {
   const handleScrollDown = () => {
     // Check if we're on the home page with snap scrolling
@@ -39,16 +42,33 @@ function Section({
     }
   };
   return (
-    <Wrapper bg={backgroundImg}>
-      <ContentTop textAlign={textAlign}>
-        {abouUstitle && <h1 className="abouUstitle">{abouUstitle}</h1>}
-        <h1>{title}</h1>
-        <p>
-          {desc} <a href={link}>{linkdesc}</a>
-        </p>
-      </ContentTop>
+    <Wrapper bg={backgroundImg} bgVideo={backgroundVideo} fullHeight={fullHeight}>
+      {backgroundVideo && (
+        <video 
+          className="background-video" 
+          autoPlay 
+          muted 
+          loop 
+          playsInline
+        >
+          <source src={`/images/${backgroundVideo}`} type="video/webm" />
+          <source src={`/images/${backgroundVideo}`} type="video/mp4" />
+        </video>
+      )}
+      {backgroundVideo && <div className="video-overlay"></div>}
+      <div className="gradient-overlay"></div>
+      
+      <div className="content-wrapper">
+        <ContentTop textAlign={textAlign}>
+          {abouUstitle && <h1 className="abouUstitle">{abouUstitle}</h1>}
+          {abdesc && <h2 className="abdesc">{abdesc}</h2>}
+          <h1>{title}</h1>
+          <p>
+            {desc} <a href={link}>{linkdesc}</a>
+          </p>
+        </ContentTop>
 
-      <div>
+        <div>
          {/* <ContentMid className={arrow ? "" : "buttons"}>
            {leftbtn && (
              <div className="left">
@@ -68,7 +88,7 @@ function Section({
         {range && (
           <Content>
             <div className="Info-bar">
-              <div className="Specs">
+              <div className="Specs range-text-animated">
                 <h2>{range}</h2>
                 {/* <p>Guru Homes</p> */}
               </div>
@@ -99,6 +119,7 @@ function Section({
             <img src="/images/down-arrow.svg" alt="arrow" />
           </div>
         )}
+        </div>
       </div>
     </Wrapper>
   );

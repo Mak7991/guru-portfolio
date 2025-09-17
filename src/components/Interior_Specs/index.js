@@ -13,7 +13,7 @@ const Interior = () =>{
     return(
         <Wrapper>
             <div className="title" >
-                <h1 data-aos='fade-up' >All-New Interior</h1>
+                <h1 data-aos='fade-up' >Turning Vision into Landmarks</h1>
             </div>
             <Content>
             </Content>
