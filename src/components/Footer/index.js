@@ -14,8 +14,8 @@ const Footer = ({bottom}) =>{
                     <a href="/" target='_blank' >Guru Homes &copy; {getCurrentYear()}</a>
                 </div>
                 <div>
-                    <a href="/" target="_blank" >Our Team</a>
-                    <a href="/" target="_blank" >About Us</a>
+                    <a href="/" >Our Team</a>
+                    <a href="/AboutUs" >About Us</a>
                 </div>
             </Content>
         </Wrapper>

@@ -83,8 +83,8 @@
   
   .menu-wrap .toggler {
     position: absolute;
-    top: 0;
-    left: 0;
+    top: 25px;
+    left: 10px;
     z-index: 2;
     cursor: pointer;
     width: 50px;
@@ -94,8 +94,8 @@
   
   .menu-wrap .hamburger {
     position: absolute;
-    top: 0;
-    left: 0;
+    top: 25px;
+    left: 10px;
     z-index: 1;
     width: 60px;
     height: 60px;
@@ -173,7 +173,7 @@
     top: 0;
     left: 0;
     width: 100%;
-    height: 100%;
+    height: 100vh;
     visibility: hidden;
     overflow: hidden;
     display: flex;
@@ -222,7 +222,9 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0, 0, 0, 0.5);
+  background: rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
   z-index: 2000;
   display: flex;
   justify-content: flex-end;
@@ -233,12 +235,15 @@
 .contact-form {
   width: 30%;
   height: 100%;
-  background: white;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
   box-shadow: -5px 0 20px rgba(0, 0, 0, 0.3);
   transform: translateX(0);
   animation: slideInRight 0.3s ease-out;
   display: flex;
   flex-direction: column;
+  border-left: 1px solid rgba(255, 255, 255, 0.2);
 }
 
 .contact-header {
@@ -246,8 +251,10 @@
   justify-content: space-between;
   align-items: center;
   padding: 20px 25px;
-  border-bottom: 1px solid #eee;
-  background: #f8f9fa;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
 }
 
 .contact-header h3 {
@@ -355,10 +362,14 @@
 @media screen and (max-width: 768px) {
   .contact-form {
     width: 40%;
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
   }
   
   .contact-header {
     padding: 15px 20px;
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
   }
   
   .contact-header h3 {
@@ -370,13 +381,52 @@
   }
 }
 
+/* Specific styling for 1024px height */
+@media screen and (height: 1024px) {
+  .menu-wrap .menu{
+    height: 100vh;
+  }
+  .menu-wrap .toggler {
+    top: 20px;
+    left: 15px;
+    width: 45px;
+    height: 45px;
+  }
+  
+  .menu-wrap .hamburger {
+    top: 20px;
+    left: 15px;
+    width: 55px;
+    height: 55px;
+    padding: 0.8rem;
+  }
+  
+  .menu-wrap .hamburger > div {
+    height: 2.5px;
+  }
+  
+  .menu-wrap .hamburger > div::before,
+  .menu-wrap .hamburger > div::after {
+    height: 2.5px;
+  }
+  
+  .menu-wrap .menu > div > div > ul > li {
+    font-size: 1.4rem;
+    padding: 0.9rem;
+  }
+}
+
 @media screen and (max-width: 480px) {
   .contact-form {
     width: 50%;
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
   }
   
   .contact-header {
     padding: 12px 15px;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
   }
   
   .contact-header h3 {

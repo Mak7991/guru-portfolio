@@ -1,13 +1,12 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Wrapper, ContactButton, WhatsAppButton } from "./header.style";
 import { Link } from "react-router-dom";
-
-import SideNav from "../SideNav";
 import "./header.css";
 
 const Header = () => {
-  const [open, setOpen] = useState(false);
   const [showContactForm, setShowContactForm] = useState(false);
+  const [isVisible, setIsVisible] = useState(true);
+  const [lastScrollY, setLastScrollY] = useState(0);
 
   const handleWhatsAppClick = () => {
     const phoneNumber = "1234567890"; // Replace with actual WhatsApp number
@@ -22,9 +21,44 @@ const Header = () => {
     setShowContactForm(!showContactForm);
   };
 
+  useEffect(() => {
+    const controlNavbar = () => {
+      const currentScrollY = window.scrollY;
+      
+      // Show header when scrolling up or at the top
+      if (currentScrollY < lastScrollY || currentScrollY < 10) {
+        setIsVisible(true);
+      } 
+      // Hide header when scrolling down (only after scrolling past 100px)
+      else if (currentScrollY > lastScrollY && currentScrollY > 100) {
+        setIsVisible(false);
+      }
+      
+      setLastScrollY(currentScrollY);
+    };
+
+    // Throttle scroll events for better performance
+    let ticking = false;
+    const throttledControlNavbar = () => {
+      if (!ticking) {
+        requestAnimationFrame(() => {
+          controlNavbar();
+          ticking = false;
+        });
+        ticking = true;
+      }
+    };
+
+    window.addEventListener('scroll', throttledControlNavbar, { passive: true });
+    
+    return () => {
+      window.removeEventListener('scroll', throttledControlNavbar);
+    };
+  }, [lastScrollY]);
+
   return (
     <>
-      <Wrapper>
+      <Wrapper isVisible={isVisible}>
         <div className="logo">
           <Link to="/">
             <img className="logo-img" src="/images/logo.png" alt="logo" />

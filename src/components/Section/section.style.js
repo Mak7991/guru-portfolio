@@ -159,7 +159,7 @@ export const Wrapper = styled.div`
 
 export const ContentTop = styled.div`
     text-align: ${props => props.textAlign || 'center'};
-    padding-top: 16vh;
+    padding-top: 25vh;
     padding-left: ${props => props.textAlign === 'left' ? '60px' : '0'};
     padding-right: ${props => props.textAlign === 'left' ? '60px' : '0'};
     h1{
@@ -167,9 +167,9 @@ export const ContentTop = styled.div`
         letter-spacing: 0.5px;
         font-size: 3.2rem;
         color: var(--teslaColor);
-        line-height: 4;
+        line-height: 1.8;
         
-        &.abouUstitle {
+        &.pagestitle {
             font-size: 2.8rem;
             font-weight: 700;
             color: #2D5460;
@@ -182,23 +182,43 @@ export const ContentTop = styled.div`
         padding: 8px 5px;
         color: #2D5460;
         line-height: 1.5;
+        display: inline; /* Ensure paragraph content flows inline */
+        margin: 0; /* Remove default margins */
     }
     a{
-        text-decoration: underline;
-        text-underline-position: under;
-        display: inline-block;
+        position: relative;
+        text-decoration: none;
+        display: inline; /* Change to inline to flow with text */
         color: #2D5460;
-        transition: color 200ms ease-in;
+        transition: color 300ms ease-in-out;
+        overflow: hidden;
+        vertical-align: baseline; /* Align with text baseline */
+
+        /* Animated underline */
+        &::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--teslaColor);
+            transition: width 400ms ease-in-out;
+            transform-origin: left;
+        }
 
         :hover{
             color: var(--teslaColor);
-            text-decoration-thickness: 2px;
+            
+            &::after {
+                width: 100%;
+            }
         }
     }
-    h1.abouUstitle{
+    h1.pagestitle{
         color: #2D5460;
     }
-    h2.abdesc{
+    h2.pagesdesc{
         color: #2D5460;
     }
 
@@ -224,11 +244,12 @@ export const ContentTop = styled.div`
         h1{
             font-size: 2.5rem;
             font-weight: 700;
+            padding-top: 10vh;
             
-            &.abouUstitle {
+            &.pagestitle {
                 font-size: 2.2rem;
             }
-            &.abdesc {
+            &.pagesdesc {
                 font-size: 1.5rem;
             }
         }
@@ -263,10 +284,10 @@ export const ContentTop = styled.div`
             font-size: 2rem;
             font-weight: 700;
             
-            &.abouUstitle {
+            &.pagestitle {
                 font-size: 1.8rem;
             }
-            &.abdesc {
+            &.pagesdesc {
                 font-size: 1.5rem;
             }
         }

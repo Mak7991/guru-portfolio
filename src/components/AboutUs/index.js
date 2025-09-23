@@ -1,6 +1,6 @@
 import React from "react";
 
-import { Wrapper, Content } from "./models.style";
+import { Wrapper, Content } from "./aboutus.style";
 
 import Section from "../Section";
 import Interior from "../Interior_Specs";
@@ -8,15 +8,15 @@ import Specs from "../Gen_Spec";
 import Header from "../Header";
 import Footer from "../Footer";
 
-const ModelS = () => {
+const AboutUs = () => {
   document.title = "About Us";
   return (
     <Wrapper>
       <Header />
       <Content>
         <Section
-          abouUstitle="About Us"
-          abdesc="Where Entrepreneurship Meets Real Estate."
+          pagestitle="About Us"
+          pagesdesc="Where Entrepreneurship Meets Real Estate."
           backgroundImg="bg16.jpeg"
           arrow="true"
           range="Where Entrepreneurship Meets Real Estate."
@@ -27,7 +27,7 @@ const ModelS = () => {
         />
       </Content>
       <Content>
-        {/* <Interior /> */}
+        <Interior />
       </Content>
       <Content>
         <Specs />
@@ -37,4 +37,4 @@ const ModelS = () => {
   );
 };
 
-export default ModelS;
+export default AboutUs;

@@ -1,0 +1,27 @@
+/* Accomplishments Component - Scoped CSS to prevent global conflicts */
+.accomplishments-wrapper {
+  overflow-x: hidden;
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+}
+
+/* Ensure WaveScroll component is properly integrated */
+.accomplishments-wrapper .ws-pages {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  height: 100vh;
+}
+
+/* Ensure proper spacing between sections */
+.accomplishments-wrapper > * {
+  position: relative;
+  z-index: 2;
+}
+
+/* Make sure WaveScroll doesn't interfere with other components */
+.accomplishments-wrapper .ws-pages {
+  margin-top: 0;
+  margin-bottom: 0;
+}

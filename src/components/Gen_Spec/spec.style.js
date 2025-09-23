@@ -20,16 +20,23 @@ export const Content = styled.div`
     .row{
         display: flex;
         height: 40vh;
-        justify-content: space-evenly;
+        justify-content: space-between;
         align-items: center;
+        gap: 20px;
+        margin-top: 50px;
+        margin-bottom: 40px;
     }
 
     img{
         width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border-radius: 8px;
     }
 
     .col{
-        width: 100%;
+        flex: 1;
+        min-width: 0; /* Prevents flex items from overflowing */
         h3{
             color: white;
             font-weight: 400;
@@ -70,18 +77,45 @@ export const Content = styled.div`
     }
 
     .text{
+        padding-left: 40px;
         h3, p, ul{
-            padding-left: 120px;
             padding-right: 20px;
         }
     }
     .text1{
+        padding-right: 40px;
         h3, p, ul{
-            padding-right: 120px;
+            padding-left: 20px;
         }
     }
 
+    @media screen and (max-width: 1024px){
+        .row{
+            flex-direction: column;
+            height: auto;
+            gap: 30px;
+        }
+        
+        .col{
+            width: 100%;
+        }
+        
+        .text, .text1{
+            padding: 20px;
+            h3, p, ul{
+                padding-left: 0;
+                padding-right: 0;
+            }
+        }
+    }
+    
     @media screen and (max-width: 750px){
+        width: 90%;
+        
+        .row{
+            gap: 20px;
+        }
+        
         .col{
             h3, p, ul{
                 padding-left: 10px;
@@ -104,6 +138,29 @@ export const Content = styled.div`
             ul{
                 font-size: 0.75rem;
                 line-height: 16px;
+            }
+        }
+    }
+    
+    /* Specific styling for 1024px height */
+    @media screen and (height: 1024px) {
+        .row{
+            height: 35vh;
+            margin-bottom: 30px;
+        }
+        
+        .col{
+            h3{
+                font-size: 1.3rem;
+                padding: 15px 0;
+            }
+            p{
+                font-size: 0.9rem;
+                line-height: 22px;
+            }
+            ul{
+                font-size: 0.85rem;
+                line-height: 20px;
             }
         }
     }

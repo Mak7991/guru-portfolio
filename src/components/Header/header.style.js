@@ -1,7 +1,6 @@
 import styled from 'styled-components'
 
 export const Wrapper = styled.div`
-
     position: fixed;
     top: 0;
     left: 0;
@@ -13,6 +12,8 @@ export const Wrapper = styled.div`
     z-index: 1000;
     background: transparent;
     padding: 0 30px;
+    transform: ${props => props.isVisible ? 'translateY(0)' : 'translateY(-100%)'};
+    transition: transform 0.3s ease-in-out;
     .close{
         color: black;
         padding: 5px;
@@ -166,6 +167,27 @@ export const Wrapper = styled.div`
             width: 90px;
         }
     }
+
+    /* Specific styling for 1024px height */
+    @media screen and (height: 1024px) {
+        min-height: 120px;
+        padding: 0 25px;
+        
+        .logo-img {
+            height: 110px;
+            width: 130px;
+        }
+        
+        img {
+            height: 18px;
+            width: 130px;
+        }
+        
+        .header-actions {
+            right: 25px;
+            gap: 12px;
+        }
+    }
 `;
 
 export const Content = styled.div`
@@ -276,6 +298,14 @@ export const WhatsAppButton = styled.button`
             font-size: 0.65rem;
         }
     }
+    
+    /* Specific styling for 1024px height */
+    @media screen and (height: 1024px) {
+        padding: 7px 14px;
+        .whatsapp-number {
+            font-size: 0.85rem;
+        }
+    }
 `;
 
 export const ContactButton = styled.button`
@@ -309,5 +339,11 @@ export const ContactButton = styled.button`
     @media screen and (max-width: 360px) {
         padding: 3px 8px;
         font-size: 0.65rem;
+    }
+    
+    /* Specific styling for 1024px height */
+    @media screen and (height: 1024px) {
+        padding: 7px 18px;
+        font-size: 0.85rem;
     }
 `;

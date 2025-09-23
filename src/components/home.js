@@ -3,6 +3,7 @@ import { Wrapper,Content } from './home.style'
 
 import Section from './Section'
 import Header from './Header';
+import Footer from './Footer';
 
 function Home() {
 
@@ -47,7 +48,7 @@ function Home() {
                     title="Accomplishments" 
                     desc="Our achievements and milestones" 
                     linkdesc="See All"
-                    link="/"
+                    link="/Accomplishments"
                     leftbtn="Accomplishments"
                     rightbtn="View More"
                     leftbtnUrl="/accomplishments"
@@ -56,9 +57,9 @@ function Home() {
                     textAlign="left"
                 />
             </Content>
-            {/* <Content>
+            <Content>
                 <Footer/>
-            </Content> */}
+            </Content>
         </Wrapper>
         </>
     )

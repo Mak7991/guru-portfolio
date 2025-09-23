@@ -6,8 +6,8 @@ import { BrowserRouter as Router ,Routes, Route, Navigate } from 'react-router-d
 // Components
 import GlobalStyle from './globalstyles';
 import Home from './components/home';
-import ModelS from './components/Model-S';
-import Model3 from './components/Model-3';
+import AboutUs from './components/AboutUs';
+import Accomplishments from './components/Accomplishments';
 import ModelX from './components/Model-X';
 import ModelY from './components/Model_Y';
 import Login from './components/Login';
@@ -48,8 +48,8 @@ function App() {
         <Routes>
           
           <Route path='/' element={<Home/>}/>
-          <Route path="/AboutUs" element={<ModelS/>} />
-          <Route path="/model3" element={<Model3/>} />
+          <Route path="/AboutUs" element={<AboutUs/>} />
+          <Route path="/Accomplishments" element={<Accomplishments/>} />
           <Route path="/modelx" element={<ModelX/>} />
           <Route path="/modely" element={<ModelY/>} />
           <Route path="/signup" element={<Signup/>} />

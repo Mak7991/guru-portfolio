@@ -18,9 +18,9 @@ function Section({
   hp,
   top,
   textAlign,
-  abouUstitle,
+  pagestitle,
   linkdesc,
-  abdesc,
+  pagesdesc,
   fullHeight = true
 }) {
   const handleScrollDown = () => {
@@ -60,8 +60,8 @@ function Section({
       
       <div className="content-wrapper">
         <ContentTop textAlign={textAlign}>
-          {abouUstitle && <h1 className="abouUstitle">{abouUstitle}</h1>}
-          {abdesc && <h2 className="abdesc">{abdesc}</h2>}
+          {pagestitle && <h1 className="pagestitle">{pagestitle}</h1>}
+          {pagesdesc && <h2 className="pagesdesc">{pagesdesc}</h2>}
           <h1>{title}</h1>
           <p>
             {desc} <a href={link}>{linkdesc}</a>
