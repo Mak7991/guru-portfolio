@@ -104,11 +104,11 @@ const Header = () => {
                   <li>
                     <a href="/AboutUs">About Us</a>
                   </li>
-                  <li>
+                  {/* <li>
                     <a href="/">Our Team</a>
-                  </li>
+                  </li> */}
                   <li>
-                    <a href="/">Accomplishments</a>
+                    <a href="/Accomplishments">Accomplishments</a>
                   </li>
                 </ul>
               </div>

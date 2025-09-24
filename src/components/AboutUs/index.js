@@ -16,7 +16,7 @@ const AboutUs = () => {
       <Content>
         <Section
           pagestitle="About Us"
-          pagesdesc="Where Entrepreneurship Meets Real Estate."
+          pagesdesc="Guru Homes Where Entrepreneurship Meets Real Estate."
           backgroundImg="bg16.jpeg"
           arrow="true"
           range="Where Entrepreneurship Meets Real Estate."
@@ -27,7 +27,11 @@ const AboutUs = () => {
         />
       </Content>
       <Content>
-        <Interior />
+        <Interior
+          text="Turning Vision into Landmarks"
+          title="Afnan Ahmed Siddique is more than a name in real estate. He’s a symbol of vision, ambition, and fearless entrepreneurship. As the Founder and Director of Guru Builders & Developers, Gen Z Builders & Developers, and Guru Homes Dubai, he has transformed the way the new generation approaches construction, investment, and luxury living."
+          backgroundImg="bg18.jpeg"
+        />
       </Content>
       <Content>
         <Specs />

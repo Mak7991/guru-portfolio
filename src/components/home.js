@@ -21,14 +21,14 @@ function Home() {
                     link="/AboutUs"
                     leftbtn="About Us"
                     rightbtn="Read More"
-                    leftbtnUrl="/about"
-                    rightbtnUrl="/learn-more"
+                    leftbtnUrl=""
+                    rightbtnUrl="/AboutUs"
                     backgroundImg="bg14.jpeg" 
                     arrow="true"
                     textAlign="left"
                 />
             </Content>
-            <Content>
+            {/* <Content>
                 <Section 
                     title="Our Team" 
                     desc="Meet the experts behind our success" 
@@ -36,13 +36,13 @@ function Home() {
                     link="/"
                     leftbtn="Our Team"
                     rightbtn="View More"
-                    leftbtnUrl="/team"
+                    leftbtnUrl=""
                     rightbtnUrl="/team-details"
                     backgroundImg="bg2.jpeg" 
                     arrow="true"
                     textAlign="left"
                 />
-            </Content>
+            </Content> */}
             <Content>
                 <Section 
                     title="Accomplishments" 
@@ -51,8 +51,8 @@ function Home() {
                     link="/Accomplishments"
                     leftbtn="Accomplishments"
                     rightbtn="View More"
-                    leftbtnUrl="/accomplishments"
-                    rightbtnUrl="/achievements"
+                    leftbtnUrl=""
+                    rightbtnUrl="/Accomplishments"
                     backgroundImg="bg3.jpeg"
                     textAlign="left"
                 />

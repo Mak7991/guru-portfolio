@@ -1,6 +1,7 @@
 import React from "react";
 import { Wrapper, ContentTop, Content } from "./section.style";
 import { Link } from "react-router-dom";
+import { ContentMid } from "./section.style";
 
 function Section({
   title,
@@ -69,10 +70,10 @@ function Section({
         </ContentTop>
 
         <div>
-         {/* <ContentMid className={arrow ? "" : "buttons"}>
+         <ContentMid className={arrow ? "" : "buttons"}>
            {leftbtn && (
              <div className="left">
-               <Link to={leftbtnUrl || "/about"} style={{ textDecoration: 'none' }}>
+               <Link to={leftbtnUrl || ""} style={{ textDecoration: 'none' }}>
                  <button>{leftbtn}</button>
                </Link>
              </div>
@@ -84,7 +85,7 @@ function Section({
                </Link>
              </div>
            )}
-         </ContentMid> */}
+         </ContentMid>
         {range && (
           <Content>
             <div className="Info-bar">

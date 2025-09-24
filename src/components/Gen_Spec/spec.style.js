@@ -100,6 +100,22 @@ export const Content = styled.div`
             width: 100%;
         }
         
+        /* Reorder elements on mobile - text first, then image */
+        .row .col:first-child{
+            order: 2;
+        }
+        .row .col:last-child{
+            order: 1;
+        }
+        
+        /* For rows where text should come first (text1 class) */
+        .row .text1{
+            order: 1;
+        }
+        .row .text1 + .col{
+            order: 2;
+        }
+        
         .text, .text1{
             padding: 20px;
             h3, p, ul{
