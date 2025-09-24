@@ -182,11 +182,14 @@ const WaveScroll = () => {
               >
                 <div className="mobile-overlay">
                   <h2 className="heading">{page.title}</h2>
-                  {page.id === 4 && (
+                  <p className="reference-link">
+                    For reference <a href="https://www.afnanahmedsiddique.com/awards" target="_blank" rel="noopener noreferrer">click here</a>
+                  </p>
+                  {/* {page.id === 4 && (
                     <p className="check-out">
                       Check out our <a href="#services">services</a>
                     </p>
-                  )}
+                  )} */}
                 </div>
               </div>
             ) : (
@@ -203,7 +206,12 @@ const WaveScroll = () => {
                   }}
                 >
                   {page.hasText === "left" && (
-                    <h2 className="heading">{page.title}</h2>
+                    <>
+                      <h2 className="heading">{page.title}</h2>
+                      <p className="reference-link">
+                        For reference <a href="https://www.afnanahmedsiddique.com/awards" target="_blank" rel="noopener noreferrer">click here</a>
+                      </p>
+                    </>
                   )}
                 </div>
                 <div
@@ -219,7 +227,12 @@ const WaveScroll = () => {
                   }}
                 >
                   {page.hasText === "right" && (
-                    <h2 className="heading">{page.title}</h2>
+                    <>
+                      <h2 className="heading">{page.title}</h2>
+                      <p className="reference-link">
+                        For reference <a href="https://www.afnanahmedsiddique.com/awards" target="_blank" rel="noopener noreferrer">click here</a>
+                      </p>
+                    </>
                   )}
                   {/* {page.id === 6 && (
                     <p className="check-out">

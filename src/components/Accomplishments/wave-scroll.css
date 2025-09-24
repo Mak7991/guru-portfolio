@@ -296,6 +296,32 @@
   border-bottom: 0.2rem solid;
 }
 
+.wave-scroll-container .reference-link {
+  z-index: 1000;
+  position: absolute;
+  bottom: 10rem;
+  left: 0;
+  width: 100%;
+  text-align: center;
+  color: #fff;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1rem;
+  text-transform: none;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
+}
+
+.wave-scroll-container .reference-link a {
+  color: rgba(255,255,255,0.9);
+  text-decoration: underline;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.wave-scroll-container .reference-link a:hover {
+  color: rgba(255,170,170,1);
+  text-decoration: none;
+}
+
 /* Mobile Styles */
 .wave-scroll-container .mobile-page {
   position: absolute;
@@ -367,6 +393,11 @@
     text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
   }
   
+  .wave-scroll-container .reference-link {
+    font-size: 0.9rem;
+    bottom: 4rem;
+  }
+  
   .wave-scroll-container .nav-panel {
     right: 3%;
   }
@@ -387,6 +418,11 @@
     font-size: 0.8rem;
     bottom: 1.5rem;
     text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
+  }
+  
+  .wave-scroll-container .reference-link {
+    font-size: 0.8rem;
+    bottom: 3rem;
   }
 }
 

@@ -90,4 +90,65 @@ export const Content = styled.div`
             padding: 8px;
         }
     }
+    
+    .scroll-arrow {
+        position: absolute;
+        bottom: 2rem;
+        left: 50%;
+        transform: translateX(-50%);
+        cursor: pointer;
+        z-index: 10;
+        transition: all 0.3s ease;
+        
+        &:hover {
+            transform: translateX(-50%) translateY(-5px);
+        }
+        
+        .arrow-down {
+            width: 0;
+            height: 0;
+            border-left: 15px solid transparent;
+            border-right: 15px solid transparent;
+            border-top: 20px solid rgba(255, 255, 255, 0.8);
+            animation: bounce 2s infinite;
+            transition: all 0.3s ease;
+        }
+        
+        &:hover .arrow-down {
+            border-top-color: rgba(255, 255, 255, 1);
+            transform: scale(1.1);
+        }
+        
+        @media screen and (max-width: 768px) {
+            bottom: 1.5rem;
+            
+            .arrow-down {
+                border-left: 12px solid transparent;
+                border-right: 12px solid transparent;
+                border-top: 16px solid rgba(255, 255, 255, 0.8);
+            }
+        }
+        
+        @media screen and (max-width: 480px) {
+            bottom: 1rem;
+            
+            .arrow-down {
+                border-left: 10px solid transparent;
+                border-right: 10px solid transparent;
+                border-top: 14px solid rgba(255, 255, 255, 0.8);
+            }
+        }
+    }
+    
+    @keyframes bounce {
+        0%, 20%, 50%, 80%, 100% {
+            transform: translateY(0);
+        }
+        40% {
+            transform: translateY(-10px);
+        }
+        60% {
+            transform: translateY(-5px);
+        }
+    }
 `;
