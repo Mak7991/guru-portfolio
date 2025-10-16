@@ -14,18 +14,18 @@ function Home() {
         <Wrapper data-scroll-container>
             <Content>
                 <Section 
-                    title="Turning Vision into Landmarks" 
-                    desc="Discover our story and mission" 
-                    linkdesc="Learn More"
+                    title="Coming Soon" 
+                    // desc="Discover our story and mission" 
+                    // linkdesc="Learn More"
                     // backgroundVideo="video.webm"
                     link="/AboutUs"
-                    leftbtn="About Us"
-                    rightbtn="Read More"
+                    // leftbtn="About Us"
+                    // rightbtn="Read More"
                     leftbtnUrl=""
                     rightbtnUrl="/AboutUs"
                     backgroundImg="bg14.jpeg" 
                     arrow="true"
-                    textAlign="left"
+                    textAlign="center"
                 />
             </Content>
             {/* <Content>
@@ -43,7 +43,7 @@ function Home() {
                     textAlign="left"
                 />
             </Content> */}
-            <Content>
+            {/* <Content>
                 <Section 
                     title="Accomplishments" 
                     desc="Our achievements and milestones" 
@@ -59,7 +59,7 @@ function Home() {
             </Content>
             <Content>
                 <Footer/>
-            </Content>
+            </Content> */}
         </Wrapper>
         </>
     )

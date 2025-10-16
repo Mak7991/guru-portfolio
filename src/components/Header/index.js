@@ -65,7 +65,7 @@ const Header = () => {
           </Link>
         </div>
 
-        <div className="header-actions">
+        {/* <div className="header-actions">
           <WhatsAppButton onClick={handleWhatsAppClick}>
             <span className="whatsapp-icon">📱</span>
             <span className="whatsapp-number">+971 058 864 4320</span>
@@ -74,7 +74,7 @@ const Header = () => {
           <ContactButton onClick={toggleContactForm}>
             GET IN TOUCH
           </ContactButton>
-        </div>
+        </div> */}
         {/* <Content1>
           <a href="#" onClick={() => setOpen(true)}>
             Menu
@@ -89,7 +89,7 @@ const Header = () => {
         )} */}
         {/* <SideNav show={open} /> */}
 
-        <div className="menu-wrap">
+        {/* <div className="menu-wrap">
           <input type="checkbox" className="toggler" />
           <div className="hamburger">
             <div></div>
@@ -104,9 +104,9 @@ const Header = () => {
                   <li>
                     <a href="/AboutUs">About Us</a>
                   </li>
-                  {/* <li>
+                  <li>
                     <a href="/">Our Team</a>
-                  </li> */}
+                  </li>
                   <li>
                     <a href="/Accomplishments">Accomplishments</a>
                   </li>
@@ -114,11 +114,11 @@ const Header = () => {
               </div>
             </div>
           </div>
-        </div>
+        </div> */}
       </Wrapper>
 
       {/* Contact Form Overlay */}
-      {showContactForm && (
+      {/* {showContactForm && (
         <div className="contact-overlay" onClick={toggleContactForm}>
           <div className="contact-form" onClick={(e) => e.stopPropagation()}>
             <div className="contact-header">
@@ -150,7 +150,7 @@ const Header = () => {
             </form>
           </div>
         </div>
-      )}
+      )} */}
     </>
   );
 };

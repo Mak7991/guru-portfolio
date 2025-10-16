@@ -115,11 +115,11 @@ function Section({
             </div>
           </Content>
         )}
-        {arrow && (
+        {/* {arrow && (
           <div className="arrow" onClick={handleScrollDown}>
             <img src="/images/down-arrow.svg" alt="arrow" />
           </div>
-        )}
+        )} */}
         </div>
       </div>
     </Wrapper>

@@ -165,7 +165,7 @@ export const ContentTop = styled.div`
     h1{
         font-weight: 700;
         letter-spacing: 0.5px;
-        font-size: 3.2rem;
+        font-size: 6rem;
         color: var(--teslaColor);
         line-height: 1.8;
         
