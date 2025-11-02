@@ -2,8 +2,8 @@ import styled from "styled-components";
 
 export const Wrapper = styled.div`
     width: 100%;
-    height: ${props => props.fullHeight ? '100vh' : 'auto'};
-    min-height: ${props => props.fullHeight ? '100vh' : '70vh'};
+    height: ${props => props.fullHeight ? '100vh' : '50vh'};
+    min-height: ${props => props.fullHeight ? '100vh' : '50vh'};
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -43,15 +43,45 @@ export const Wrapper = styled.div`
         width: 100%;
         height: 100%;
         background: linear-gradient(
-            to bottom,
-            rgba(255, 255, 255, 0.8) 0%,
-            rgba(255, 255, 255, 0.6) 20%,
-            rgba(255, 255, 255, 0.3) 40%,
-            rgba(255, 255, 255, 0.1) 60%,
-            transparent 80%
+            135deg,
+            rgba(0, 0, 0, 0.8) 0%,
+            rgba(0, 0, 0, 0.6) 30%,
+            rgba(0, 0, 0, 0.4) 60%,
+            rgba(0, 0, 0, 0.2) 100%
         );
         z-index: 1;
         pointer-events: none;
+    }
+
+    .blur-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 55%;
+        height: 100%;
+        background: linear-gradient(
+            to right,
+            rgba(0, 0, 0, 0.4) 0%,
+            rgba(0, 0, 0, 0.2) 50%,
+            rgba(0, 0, 0, 0) 100%
+        );
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+        mask-image: linear-gradient(
+            to right,
+            rgba(0, 0, 0, 1) 0%,
+            rgba(0, 0, 0, 0.8) 60%,
+            rgba(0, 0, 0, 0) 100%
+        );
+        -webkit-mask-image: linear-gradient(
+            to right,
+            rgba(0, 0, 0, 1) 0%,
+            rgba(0, 0, 0, 0.8) 60%,
+            rgba(0, 0, 0, 0) 100%
+        );
+        z-index: 1;
+        pointer-events: none;
+        display: ${props => props.fullHeight === false ? 'block' : 'none'};
     }
 
     .content-wrapper {
@@ -62,12 +92,16 @@ export const Wrapper = styled.div`
         display: flex;
         flex-direction: column;
         justify-content: space-between;
+        
+        &.compact {
+            justify-content: flex-start;
+        }
     }
 
     .left-content {
         position: absolute;
         left: 60px;
-        top: 16vh;
+        top: 6vh;
         z-index: 10;
         display: flex;
         flex-direction: column;
@@ -141,6 +175,33 @@ export const Wrapper = styled.div`
             transform: translateY(3px);
         }
     }
+    @media screen and (max-width: 768px){
+        .blur-overlay {
+            width: 100%;
+            background: linear-gradient(
+                to bottom,
+                rgba(0, 0, 0, 0.5) 0%,
+                rgba(0, 0, 0, 0.3) 50%,
+                rgba(0, 0, 0, 0.1) 80%,
+                rgba(0, 0, 0, 0) 100%
+            );
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            mask-image: linear-gradient(
+                to bottom,
+                rgba(0, 0, 0, 1) 0%,
+                rgba(0, 0, 0, 0.9) 60%,
+                rgba(0, 0, 0, 0) 100%
+            );
+            -webkit-mask-image: linear-gradient(
+                to bottom,
+                rgba(0, 0, 0, 1) 0%,
+                rgba(0, 0, 0, 0.9) 60%,
+                rgba(0, 0, 0, 0) 100%
+            );
+        }
+    }
+    
     @media screen and (max-width: 600px){
         img{
             height: 40px;
@@ -148,8 +209,14 @@ export const Wrapper = styled.div`
     }
     
     @media screen and (max-width: 480px){
-        height: 100vh;
-        min-height: 100vh;
+        height: ${props => props.fullHeight ? '100vh' : '50vh'} !important;
+        min-height: ${props => props.fullHeight ? '100vh' : '50vh'} !important;
+        max-height: ${props => props.fullHeight ? '100vh' : '50vh'} !important;
+        
+        .blur-overlay {
+            backdrop-filter: blur(6px);
+            -webkit-backdrop-filter: blur(6px);
+        }
         
         img{
             height: 35px;
@@ -159,20 +226,54 @@ export const Wrapper = styled.div`
 
 export const ContentTop = styled.div`
     text-align: ${props => props.textAlign || 'center'};
-    padding-top: 25vh;
+    padding-top: ${props => props.fullHeight !== false ? '25vh' : '8vh'};
+    padding-bottom: ${props => props.fullHeight !== false ? '0' : '10px'};
     padding-left: ${props => props.textAlign === 'left' ? '60px' : '0'};
     padding-right: ${props => props.textAlign === 'left' ? '60px' : '0'};
-    h1{
-        font-weight: 700;
+    max-width: ${props => props.textAlign === 'left' && props.fullHeight === false ? '50%' : '100%'};
+    position: relative;
+    z-index: 3;
+    
+    @media screen and (max-width: 768px){
+        max-width: 100%;
+        padding-left: ${props => props.textAlign === 'left' ? '20px' : '0'};
+        padding-right: ${props => props.textAlign === 'left' ? '20px' : '0'};
+    }
+    
+    @media screen and (max-width: 480px){
+        max-width: 100%;
+        padding-left: ${props => props.textAlign === 'left' ? '15px' : '0'};
+        padding-right: ${props => props.textAlign === 'left' ? '15px' : '0'};
+    }
+    h1, h2{
+        font-weight: 100;
         letter-spacing: 0.5px;
-        font-size: 6rem;
-        color: var(--teslaColor);
+        color: white;
         line-height: 1.8;
+        text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+        
+        /* Style SplitText characters */
+        .split-char {
+            color: white !important;
+        }
+    }
+    
+    h1{
+        font-size: 3rem;
         
         &.pagestitle {
             font-size: 2.8rem;
-            font-weight: 700;
-            color: #2D5460;
+            font-weight: 100;
+            margin-bottom: 10px;
+        }
+    }
+    
+    h2{
+        font-size: 2.5rem;
+        
+        &.pagesdesc {
+            font-size: 2rem;
+            font-weight: 100;
             margin-bottom: 10px;
         }
     }
@@ -180,19 +281,52 @@ export const ContentTop = styled.div`
         font-size: 2rem;
         font-weight: 500;
         padding: 8px 5px;
-        color: #2D5460;
+        color: white;
         line-height: 1.5;
         display: inline; /* Ensure paragraph content flows inline */
         margin: 0; /* Remove default margins */
+        text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+        
+        /* Style SplitText words and characters */
+        .split-word {
+            color: white !important;
+        }
+        .split-char {
+            color: white !important;
+        }
+        
+        &.desc-text {
+            display: block;
+            margin-bottom: 10px;
+        }
+        
+        &.para-text {
+            display: block;
+            font-size: 1.3rem;
+            font-weight: 400;
+            line-height: 1.6;
+            margin-top: ${props => props.fullHeight !== false ? '8vh' : '10px'};
+            margin-bottom: 20px;
+            padding: 20px 24px;
+            max-width: 600px;
+            text-align: justify;
+            position: relative;
+            background: rgba(0, 0, 0, 0.3);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+        }
     }
     a{
         position: relative;
         text-decoration: none;
         display: inline; /* Change to inline to flow with text */
-        color: #2D5460;
+        color: white;
         transition: color 300ms ease-in-out;
         overflow: hidden;
         vertical-align: baseline; /* Align with text baseline */
+        text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
 
         /* Animated underline */
         &::after {
@@ -202,24 +336,18 @@ export const ContentTop = styled.div`
             left: 0;
             width: 0;
             height: 2px;
-            background-color: var(--teslaColor);
+            background-color: white;
             transition: width 400ms ease-in-out;
             transform-origin: left;
         }
 
         :hover{
-            color: var(--teslaColor);
+            color: white;
             
             &::after {
                 width: 100%;
             }
         }
-    }
-    h1.pagestitle{
-        color: #2D5460;
-    }
-    h2.pagesdesc{
-        color: #2D5460;
     }
 
     animation: transform 1s;
@@ -239,18 +367,35 @@ export const ContentTop = styled.div`
     @media screen and (max-width: 768px){
         padding-left: ${props => props.textAlign === 'left' ? '20px' : '0'};
         padding-right: ${props => props.textAlign === 'left' ? '20px' : '0'};
-        padding-top: 12vh;
+        padding-top: ${props => props.fullHeight !== false ? '12vh' : '5vh'};
         
         h1{
             font-size: 2.5rem;
-            font-weight: 700;
+            font-weight: 100;
             padding-top: 10vh;
             
             &.pagestitle {
                 font-size: 2.2rem;
             }
+        }
+        
+        h2{
+            font-size: 2rem;
+            
             &.pagesdesc {
                 font-size: 1.5rem;
+            }
+        }
+        
+        p{
+            &.para-text {
+                font-size: 1.1rem;
+                margin-top: ${props => props.fullHeight !== false ? '20vh' : '10px'};
+                margin-bottom: 18px;
+                max-width: 100%;
+                padding: 16px 20px;
+                backdrop-filter: blur(8px);
+                -webkit-backdrop-filter: blur(8px);
             }
         }
 
@@ -276,17 +421,22 @@ export const ContentTop = styled.div`
     }
     
     @media screen and (max-width: 480px){
-        padding-top: 10vh;
+        padding-top: ${props => props.fullHeight !== false ? '10vh' : '4vh'};
         padding-left: ${props => props.textAlign === 'left' ? '15px' : '0'};
         padding-right: ${props => props.textAlign === 'left' ? '15px' : '0'};
         
         h1{
             font-size: 2rem;
-            font-weight: 700;
+            font-weight: 100;
             
             &.pagestitle {
                 font-size: 1.8rem;
             }
+        }
+        
+        h2{
+            font-size: 1.8rem;
+            
             &.pagesdesc {
                 font-size: 1.5rem;
             }
@@ -295,6 +445,16 @@ export const ContentTop = styled.div`
         p{
             font-size: 1rem;
             font-weight: 500;
+            
+            &.para-text {
+                font-size: 1rem;
+                margin-top: ${props => props.fullHeight !== false ? '20vh' : '10px'};
+                margin-bottom: 15px;
+                max-width: 100%;
+                padding: 14px 18px;
+                backdrop-filter: blur(6px);
+                -webkit-backdrop-filter: blur(6px);
+            }
         }
 
         .left-content {
@@ -320,10 +480,13 @@ export const ContentTop = styled.div`
 `;
 
 export const ContentMid = styled.div`
-
     display: flex;
-    justify-content: center;
+    justify-content: ${props => props.textAlign === 'left' ? 'flex-start' : 'center'};
     flex-wrap: wrap;
+    padding-left: ${props => props.textAlign === 'left' ? '60px' : '0'};
+    margin-top: 5px;
+    margin-bottom: ${props => props.fullHeight !== false ? '30px' : '5px'};
+    width: 100%;
 
     button{
         padding: 12px 24px;
@@ -337,31 +500,49 @@ export const ContentMid = styled.div`
         opacity: 0.95;
         transition: all 0.3s ease;
         text-transform: uppercase;
+        text-decoration: none;
         :hover{
             cursor: pointer;
             transform: translateY(-2px);
             box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+            text-decoration: none;
         }
     }
 
     .left {
         a {
-            text-decoration: none;
+            text-decoration: none !important;
+            :hover {
+                text-decoration: none !important;
+            }
+            :focus {
+                text-decoration: none !important;
+            }
+            :active {
+                text-decoration: none !important;
+            }
         }
         button{
-            background-color: rgba(23,26,32,0.9);
+            background-color: transparent;
             color: white;
+            border: 2px solid white;
             margin-right: 25px;
+            width: 280px;
+            text-decoration: none !important;
             :hover{
-                background-color: rgba(23,26,32,1);
+                background-color: white;
+                color: black;
+                text-decoration: none !important;
+                text-underline-offset: none;
+            }
+            :focus {
+                text-decoration: none !important;
             }
         }
     }
 
     .right {
-        a {
-            text-decoration: none;
-        }
+      
         button{
             background-color: rgba(255,255,255,0.8);
             color: rgba(23,26,32,0.9);
@@ -373,17 +554,48 @@ export const ContentMid = styled.div`
 
     @media screen and (max-width: 600px){
         flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding-left: 0;
+        margin-top: 5px;
         .left , .right{
             display: flex;
             justify-content: center;
+            align-items: center;
+            width: 100%;
         }
-        .left button{
-            margin-right: 0;
-            margin-bottom: 15px;
+        .left {
+            a {
+                text-decoration: none !important;
+                :hover {
+                    text-decoration: none !important;
+                }
+            }
+            button{
+                margin-right: 0;
+                margin-bottom: 12px;
+                width: 280px;
+                text-align: center;
+                text-decoration: none !important;
+                :hover{
+                    text-decoration: none !important;
+                }
+            }
         }
         button{
-            width: 90%;
-            padding: 5px 10px;
+            width: 280px;
+            padding: 10px 20px;
+            font-size: 0.8rem;
+        }
+    }
+
+    @media screen and (max-width: 480px){
+        justify-content: center;
+        align-items: center;
+        padding-left: 0;
+        margin-top: 3px;
+        .left button{
+            width: 280px;
         }
     }
 
@@ -426,7 +638,7 @@ export const Content = styled.div`
         p{
             padding-top: 8px;
             color: white;
-            font-weight: 200;
+            font-weight: 100;
             font-size: 0.8rem;
             letter-spacing: 0.3px;
         }

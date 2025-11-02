@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Wrapper, ContactButton, WhatsAppButton } from "./header.style";
+import { Wrapper, WhatsAppButton } from "./header.style";
 import { Link } from "react-router-dom";
 import "./header.css";
 
@@ -24,16 +24,16 @@ const Header = () => {
   useEffect(() => {
     const controlNavbar = () => {
       const currentScrollY = window.scrollY;
-      
+
       // Show header when scrolling up or at the top
       if (currentScrollY < lastScrollY || currentScrollY < 10) {
         setIsVisible(true);
-      } 
-      // Hide header when scrolling down (only after scrolling past 100px)
-      else if (currentScrollY > lastScrollY && currentScrollY > 100) {
+      }
+      // Hide header when scrolling down (only after scrolling past 50px for better responsiveness)
+      else if (currentScrollY > lastScrollY && currentScrollY > 50) {
         setIsVisible(false);
       }
-      
+
       setLastScrollY(currentScrollY);
     };
 
@@ -49,10 +49,12 @@ const Header = () => {
       }
     };
 
-    window.addEventListener('scroll', throttledControlNavbar, { passive: true });
-    
+    window.addEventListener("scroll", throttledControlNavbar, {
+      passive: true,
+    });
+
     return () => {
-      window.removeEventListener('scroll', throttledControlNavbar);
+      window.removeEventListener("scroll", throttledControlNavbar);
     };
   }, [lastScrollY]);
 
@@ -61,20 +63,24 @@ const Header = () => {
       <Wrapper isVisible={isVisible}>
         <div className="logo">
           <Link to="/">
-            <img className="logo-img" src="/images/logo.png" alt="logo" />
+            <img
+              className="logo-img"
+              src="/images/logo.png"
+              alt="Guru Homes Logo - Premium Real Estate Developer"
+            />
           </Link>
         </div>
 
-        {/* <div className="header-actions">
+        <div className="header-actions">
           <WhatsAppButton onClick={handleWhatsAppClick}>
             <span className="whatsapp-icon">📱</span>
             <span className="whatsapp-number">+971 058 864 4320</span>
           </WhatsAppButton>
 
-          <ContactButton onClick={toggleContactForm}>
+          {/* <ContactButton onClick={toggleContactForm}>
             GET IN TOUCH
-          </ContactButton>
-        </div> */}
+          </ContactButton> */}
+        </div>
         {/* <Content1>
           <a href="#" onClick={() => setOpen(true)}>
             Menu
@@ -89,7 +95,7 @@ const Header = () => {
         )} */}
         {/* <SideNav show={open} /> */}
 
-        {/* <div className="menu-wrap">
+        <div className="menu-wrap">
           <input type="checkbox" className="toggler" />
           <div className="hamburger">
             <div></div>
@@ -99,26 +105,26 @@ const Header = () => {
               <div>
                 <ul>
                   <li>
-                    <a href="/">Home</a>
-                  </li>
-                  <li>
                     <a href="/AboutUs">About Us</a>
                   </li>
                   <li>
-                    <a href="/">Our Team</a>
+                    <a href="/Portfolio">Portfolio</a>
                   </li>
                   <li>
-                    <a href="/Accomplishments">Accomplishments</a>
+                    <a href="/Services">Services</a>
+                  </li>
+                  <li>
+                    <a href="/Contact">Contact Us</a>
                   </li>
                 </ul>
               </div>
             </div>
           </div>
-        </div> */}
+        </div>
       </Wrapper>
 
       {/* Contact Form Overlay */}
-      {/* {showContactForm && (
+      {showContactForm && (
         <div className="contact-overlay" onClick={toggleContactForm}>
           <div className="contact-form" onClick={(e) => e.stopPropagation()}>
             <div className="contact-header">
@@ -150,7 +156,7 @@ const Header = () => {
             </form>
           </div>
         </div>
-      )} */}
+      )}
     </>
   );
 };

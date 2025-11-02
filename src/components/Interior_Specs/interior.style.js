@@ -14,7 +14,7 @@ export const Wrapper = styled.div`
         
         h1{
             color: white;
-            font-weight: 500;
+            font-weight: 100;
             letter-spacing: 0.8px;
             font-size: 2rem;
             text-align: center;
@@ -58,9 +58,25 @@ export const Content = styled.div`
     justify-content: center;
     position: relative;
     
+    /* Black overlay to make text visible */
+    &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.5);
+        z-index: 1;
+        pointer-events: none;
+    }
+    
+    /* Ensure content is above overlay */
     h2 {
+        position: relative;
+        z-index: 2;
         color: white;
-        font-weight: 600;
+        font-weight: 100;
         letter-spacing: 1px;
         font-size: 2.5rem;
         text-align: center;
@@ -68,6 +84,15 @@ export const Content = styled.div`
         text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
         margin: 0;
         padding: 20px;
+        
+        /* Style SplitText words */
+        .split-word {
+            color: white !important;
+        }
+        
+        .split-char {
+            color: white !important;
+        }
         
         @media screen and (max-width: 768px) {
             font-size: 2rem;

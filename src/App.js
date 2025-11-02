@@ -1,5 +1,6 @@
 import React,{ useEffect } from 'react';
-import { BrowserRouter as Router ,Routes, Route, Navigate } from 'react-router-dom';
+import { BrowserRouter as Router ,Routes, Route } from 'react-router-dom';
+import { HelmetProvider } from 'react-helmet-async';
 
 // Using AOS for animation
 
@@ -7,74 +8,31 @@ import { BrowserRouter as Router ,Routes, Route, Navigate } from 'react-router-d
 import GlobalStyle from './globalstyles';
 import Home from './components/home';
 import AboutUs from './components/AboutUs';
-import Accomplishments from './components/Accomplishments';
-import ModelX from './components/Model-X';
-import ModelY from './components/Model_Y';
-import Login from './components/Login';
-import Signup from './components/Signup';
-import Account from './components/Account';
-
-import { useSelector,useDispatch } from 'react-redux';
-import { selectUser,login,logout } from './features/userSlice';
-import { auth } from './components/firebase';
+import Portfolio from './components/Portfolio';
+import FloatingButtons from './components/FloatingButtons';
+import Services from './components/Services';
+import Contact from './components/Contact';
 
 function App() {
 
-  const user = useSelector(selectUser)
-
-  const dispatch = useDispatch()
-
-  useEffect(() => {
-    auth.onAuthStateChanged((userAuth) => {
-      if (userAuth) {
-        // User is signed in
-        dispatch(
-          login({
-            email: userAuth.email,
-            uid: userAuth.uid,
-            displayName: userAuth.displayName,
-          })
-        )
-      } else {
-        // User is signed out
-        dispatch(logout())
-      }
-    })
-  }, [dispatch])
-
   return (
-    <Router>
-      <div className="App">
-        <Routes>
+    <HelmetProvider>
+      <Router>
+        <div className="App">
+          <Routes>
           
           <Route path='/' element={<Home/>}/>
           <Route path="/AboutUs" element={<AboutUs/>} />
-          <Route path="/Accomplishments" element={<Accomplishments/>} />
-          <Route path="/modelx" element={<ModelX/>} />
-          <Route path="/modely" element={<ModelY/>} />
-          <Route path="/signup" element={<Signup/>} />
-          <Route 
-            path="/teslaaccount" 
-            element={
-              <main>
-                {user ? <Account/> : <Navigate to='/login'/>}
-              </main>
-            }
-          />
-          <Route 
-            path="/login" 
-            element={
-              <main>
-                {user ? <Navigate to='/teslaaccount'/> : <Login/>}
-              </main>
-            } 
-          />
-
+          <Route path="/Portfolio" element={<Portfolio/>} />
+          <Route path="/Services" element={<Services/>} />
+          <Route path="/Contact" element={<Contact/>} />
         </Routes>
 
+        <FloatingButtons />
         <GlobalStyle/>
       </div>
     </Router>
+    </HelmetProvider>
   );
 }
 

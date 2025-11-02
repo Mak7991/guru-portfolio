@@ -13,7 +13,7 @@ export const Wrapper = styled.div`
     background: transparent;
     padding: 0 30px;
     transform: ${props => props.isVisible ? 'translateY(0)' : 'translateY(-100%)'};
-    transition: transform 0.3s ease-in-out;
+    transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     .close{
         color: black;
         padding: 5px;
@@ -253,7 +253,7 @@ export const WhatsAppButton = styled.button`
     gap: 8px;
     padding: 8px 16px;
     background: transparent;
-    color: #2D5460;
+    color: white;
     border: none;
     border-radius: 0;
     font-size: 0.9rem;
@@ -270,10 +270,11 @@ export const WhatsAppButton = styled.button`
     .whatsapp-number {
         font-size: 0.9rem;
         font-weight: 600;
+        color: white;
     }
     
     &:hover {
-        color: #1e3d47;
+        color: rgba(255, 255, 255, 0.8);
         transform: translateY(-1px);
     }
     

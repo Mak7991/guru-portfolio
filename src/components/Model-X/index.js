@@ -7,11 +7,17 @@ import Interior from "../Interior_Specs";
 import Specs from "../Gen_Spec";
 import Header from "../Header";
 import Footer from "../Footer";
+import SEO from "../SEO";
 
 const ModelX = () =>{
-    document.title = "Model X | Tesla";
     return(
         <Wrapper>
+            <SEO 
+                title="Model X - Guru Homes | Premium Real Estate Development"
+                description="Discover Model X by Guru Homes - our flagship premium real estate development featuring luxury amenities, modern design, and exceptional living standards."
+                keywords="Model X Guru Homes, premium real estate, luxury development, modern apartments, high-end properties"
+                url="/modelx"
+            />
             <Header/>
             <Section 
                 title="Model X" 

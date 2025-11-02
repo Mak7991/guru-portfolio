@@ -10,4 +10,6 @@ export const Wrapper = styled.div`
 
 export const Content = styled.div`
     scroll-snap-align: start;
+    margin: 0;
+    padding: 0;
 `;

@@ -4,20 +4,12 @@ import "aos/dist/aos.css";
 
 import { Wrapper, Content } from "./interior.style";
 
+import SplitText from "../SplitText";
+
 const Interior = ({ text, title, backgroundImg }) => {
   useEffect(() => {
     AOS.init({ duration: 1400 });
   }, []);
-
-  const scrollToNext = () => {
-    const nextElement = document.querySelector('.wave-scroll-container');
-    if (nextElement) {
-      nextElement.scrollIntoView({ 
-        behavior: 'smooth',
-        block: 'start'
-      });
-    }
-  };
 
   return (
     <Wrapper>
@@ -25,12 +17,20 @@ const Interior = ({ text, title, backgroundImg }) => {
         <h1 data-aos="fade-up">{text}</h1>
       </div>
       <Content backgroundImg={backgroundImg}>
-        <h2 data-aos="fade-up" data-aos-delay="200">
-          {title}
-        </h2>
-        <div className="scroll-arrow" onClick={scrollToNext} data-aos="fade-up" data-aos-delay="400">
-          <div className="arrow-down"></div>
-        </div>
+        <SplitText
+          text={title}
+          className="interior-title"
+          delay={50}
+          duration={0.8}
+          ease="power3.out"
+          splitType="words"
+          from={{ opacity: 0, y: 30 }}
+          to={{ opacity: 1, y: 0 }}
+          threshold={0.1}
+          rootMargin="-100px"
+          textAlign="center"
+          tag="h2"
+        />
       </Content>
     </Wrapper>
   );
