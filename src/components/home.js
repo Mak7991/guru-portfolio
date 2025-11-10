@@ -79,7 +79,7 @@ function Home() {
           <Section
             title="Your Trusted Partner in Dubai Real Estate"
             desc="Connecting investors and homeowners with the finest properties across the UAE."
-            para="Guru Homes Dubai is a boutique real estate brokerage firm dedicated to providing seamless property solutions in one of the world’s most dynamic markets. From luxury residences and off-plan developments to commercial spaces and investment properties, we specialize in helping our clients make informed decisions with confidence."
+            para="Guru Homes Dubai connects investors and homeowners with the finest luxury residences, off-plan developments, commercial properties, and investment opportunities across Dubai and the UAE. Our boutique real estate brokerage ensures seamless property solutions, helping clients make informed decisions with confidence and professionalism."
             // linkdesc="Read More"
             backgroundVideo="video2.mp4"
             link="/AboutUs"

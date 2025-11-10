@@ -62,9 +62,57 @@ export const Wrapper = styled.div`
         align-items: center;
         gap: 15px;
         
+        .social-icons {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .social-icon-button {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 42px;
+            height: 42px;
+            border-radius: 50%;
+            border: 1px solid rgba(255, 255, 255, 0.25);
+            background: rgba(255, 255, 255, 0.12);
+            color: var(--brand-color, #ffffff);
+            cursor: pointer;
+            transition: transform 0.2s ease, background 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.18);
+
+            svg {
+                font-size: 1.3rem;
+                color: var(--brand-color, #ffffff) !important;
+            }
+
+            &:hover,
+            &:focus {
+                transform: translateY(-2px) scale(1.05);
+                border-color: rgba(255, 255, 255, 0.4);
+                background: var(--brand-color, rgba(255, 255, 255, 0.3));
+                box-shadow: 0 10px 22px rgba(0, 0, 0, 0.26);
+                svg {
+                    color: #ffffff !important;
+                }
+            }
+        }
+
         @media screen and (max-width: 768px) {
             position: static;
             justify-content: center;
+            .social-icons {
+                gap: 10px;
+            }
+            .social-icon-button {
+                width: 38px;
+                height: 38px;
+                box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+                svg {
+                    font-size: 1.2rem;
+                }
+            }
         }
     }
     .logo-img{
@@ -106,6 +154,14 @@ export const Wrapper = styled.div`
             position: static;
             justify-content: center;
             gap: 10px;
+            .social-icon-button {
+                width: 34px;
+                height: 34px;
+                box-shadow: 0 5px 10px rgba(0, 0, 0, 0.12);
+                svg {
+                    font-size: 1.1rem;
+                }
+            }
         }
         .logo-img{
             height: 100px;
@@ -131,6 +187,14 @@ export const Wrapper = styled.div`
             position: static;
             justify-content: center;
             gap: 8px;
+            .social-icon-button {
+                width: 32px;
+                height: 32px;
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+                svg {
+                    font-size: 1rem;
+                }
+            }
         }
         .logo-img{
             height: 80px;
@@ -157,6 +221,14 @@ export const Wrapper = styled.div`
             position: static;
             justify-content: center;
             gap: 5px;
+            .social-icon-button {
+                width: 30px;
+                height: 30px;
+                box-shadow: 0 3px 6px rgba(0, 0, 0, 0.08);
+                svg {
+                    font-size: 0.95rem;
+                }
+            }
         }
         .logo-img{
             height: 70px;
@@ -186,6 +258,14 @@ export const Wrapper = styled.div`
         .header-actions {
             right: 25px;
             gap: 12px;
+            .social-icon-button {
+                width: 38px;
+                height: 38px;
+                box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+                svg {
+                    font-size: 1.15rem;
+                }
+            }
         }
     }
 `;

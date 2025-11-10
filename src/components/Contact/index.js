@@ -140,7 +140,7 @@ const Contact = () => {
             </div>
             <div className="info-section">
               <h3>Address</h3>
-              <p>Dubai, UAE</p>
+              <p>SHEIKH ZAYED ROAD, DUBAI, UAE</p>
             </div>
           </ContactInfo>
           <ContactForm>

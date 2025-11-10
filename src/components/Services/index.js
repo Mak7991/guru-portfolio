@@ -21,7 +21,9 @@ const Services = () => {
       <Header />
       <ServicesHero
         title="Our Services"
-        desc="From property investment consulting to end-to-end development services, we provide personalized solutions designed to help you achieve your real estate goals with confidence and ease."
+        desc="At Guru Homes Dubai, we offer comprehensive real estate services including property investment consulting, residential and commercial development, off-plan projects, and end-to-end property solutions.
+Our personalized approach helps clients buy, sell, or invest in Dubai and international properties with confidence and ease.
+Explore our services and achieve your real estate goals today."
         backgroundImg="bg24.jpeg"
       >
         <CardSwap

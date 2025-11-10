@@ -1,24 +1,60 @@
 import React, { useState, useEffect } from "react";
-import { Wrapper, WhatsAppButton } from "./header.style";
+import WhatsAppIcon from "@mui/icons-material/WhatsApp";
+import InstagramIcon from "@mui/icons-material/Instagram";
+import FacebookIcon from "@mui/icons-material/Facebook";
+import LinkedInIcon from "@mui/icons-material/LinkedIn";
+import { Wrapper } from "./header.style";
 import { Link } from "react-router-dom";
 import "./header.css";
+
+const SOCIAL_LINKS = {
+  whatsapp: {
+    label: "WhatsApp",
+    url: "https://wa.me/9710588644320",
+    icon: WhatsAppIcon,
+    color: "#25D366",
+  },
+  instagram: {
+    label: "Instagram",
+    url: "https://www.instagram.com/guruhomesofficial?igsh=djNjNzdmcGR2bXpi",
+    icon: InstagramIcon,
+    color: "#E4405F",
+  },
+  meta: {
+    label: "Meta",
+    url: "https://www.facebook.com/share/16fGYwgpUF/?mibextid=wwXIfr",
+    icon: FacebookIcon,
+    color: "#1877F2",
+  },
+  linkedin: {
+    label: "LinkedIn",
+    url: "https://www.linkedin.com/company/guru-homes/",
+    icon: LinkedInIcon,
+    color: "#0A66C2",
+  },
+};
+
+const generateQrImageUrl = (url) =>
+  `https://api.qrserver.com/v1/create-qr-code/?size=260x260&data=${encodeURIComponent(
+    url
+  )}`;
 
 const Header = () => {
   const [showContactForm, setShowContactForm] = useState(false);
   const [isVisible, setIsVisible] = useState(true);
   const [lastScrollY, setLastScrollY] = useState(0);
-
-  const handleWhatsAppClick = () => {
-    const phoneNumber = "1234567890"; // Replace with actual WhatsApp number
-    const message = "Hello! I'm interested in your services.";
-    const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(
-      message
-    )}`;
-    window.open(whatsappUrl, "_blank");
-  };
+  const [selectedSocial, setSelectedSocial] = useState(null);
 
   const toggleContactForm = () => {
     setShowContactForm(!showContactForm);
+  };
+
+  const handleSocialClick = (platformKey) => {
+    setSelectedSocial(platformKey);
+  };
+
+  const closeQrModal = () => {
+    setSelectedSocial(null);
   };
 
   useEffect(() => {
@@ -72,14 +108,23 @@ const Header = () => {
         </div>
 
         <div className="header-actions">
-          <WhatsAppButton onClick={handleWhatsAppClick}>
-            <span className="whatsapp-icon">📱</span>
-            <span className="whatsapp-number">+971 058 864 4320</span>
-          </WhatsAppButton>
-
-          {/* <ContactButton onClick={toggleContactForm}>
-            GET IN TOUCH
-          </ContactButton> */}
+          <div className="social-icons">
+            {Object.entries(SOCIAL_LINKS).map(([key, config]) => {
+              const IconComponent = config.icon;
+              return (
+                <button
+                  key={key}
+                  type="button"
+                  className="social-icon-button"
+                  onClick={() => handleSocialClick(key)}
+                  aria-label={`Open ${config.label} QR code`}
+                  style={{ "--brand-color": config.color }}
+                >
+                  <IconComponent />
+                </button>
+              );
+            })}
+          </div>
         </div>
         {/* <Content1>
           <a href="#" onClick={() => setOpen(true)}>
@@ -154,6 +199,49 @@ const Header = () => {
                 Send Message
               </button>
             </form>
+          </div>
+        </div>
+      )}
+
+      {selectedSocial && (
+        <div className="qr-overlay" onClick={closeQrModal}>
+          <div className="qr-modal" onClick={(e) => e.stopPropagation()}>
+            <button
+              type="button"
+              className="qr-close"
+              onClick={closeQrModal}
+              aria-label="Close QR code"
+            >
+              ×
+            </button>
+            <div className="qr-modal-header">
+              {(() => {
+                const ActiveIcon = SOCIAL_LINKS[selectedSocial].icon;
+                return (
+                  <ActiveIcon
+                    className="qr-modal-icon"
+                    style={{ color: SOCIAL_LINKS[selectedSocial].color }}
+                  />
+                );
+              })()}
+              <span>{SOCIAL_LINKS[selectedSocial].label}</span>
+            </div>
+            <img
+              src={generateQrImageUrl(SOCIAL_LINKS[selectedSocial].url)}
+              alt={`QR code for ${SOCIAL_LINKS[selectedSocial].label}`}
+              className="qr-image"
+            />
+            <p className="qr-caption">
+              Scan to open {SOCIAL_LINKS[selectedSocial].label}.
+            </p>
+            <a
+              className="qr-link"
+              href={SOCIAL_LINKS[selectedSocial].url}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Open link directly
+            </a>
           </div>
         </div>
       )}

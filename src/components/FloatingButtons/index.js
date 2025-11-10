@@ -139,31 +139,6 @@ const FloatingButtons = () => {
     setIsExpanded(!isExpanded);
   };
 
-  const handleScrollDown = () => {
-    if (!isExpanded) {
-      // If not expanded, expand first
-      setIsExpanded(true);
-      return;
-    }
-
-    // Check if we're on the home page with snap scrolling
-    const homeWrapper = document.querySelector('[data-scroll-container]');
-    
-    if (homeWrapper) {
-      // For snap scrolling, scroll by one viewport height
-      homeWrapper.scrollBy({
-        top: window.innerHeight,
-        behavior: 'smooth'
-      });
-    } else {
-      // Fallback for regular scrolling
-      window.scrollBy({
-        top: window.innerHeight,
-        behavior: 'smooth'
-      });
-    }
-  };
-
   const handleWhatsApp = () => {
     const phoneNumber = '9710588644320'; // UAE phone number format
     const message = 'Hello, I would like to know more about Guru Homes properties.';

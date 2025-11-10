@@ -4,7 +4,6 @@ import { Wrapper, Content } from "./aboutus.style";
 
 import Section from "../Section";
 import Interior from "../Interior_Specs";
-import Specs from "../Gen_Spec";
 import Header from "../Header";
 import Footer from "../Footer";
 import SEO from "../SEO";
@@ -22,7 +21,7 @@ const AboutUs = () => {
       <Content>
         <Section
           title="About Us"
-          desc="Guru Homes Dubai operates with a clear philosophy: real estate is not just about transactions it’s about trust. We are committed to delivering value by offering credible insights, transparent processes, and personalized solutions."
+          desc="Guru Homes Dubai operates with a clear philosophy: real estate is not just about transactions, it’s about trust. As a leading real estate agency in Dubai, we provide residential, commercial, and investment property solutions, delivering value through credible insights, transparent processes, and personalized guidance. Your trusted partner to buy, sell, or invest in Dubai properties."
           backgroundImg="bg23.jpeg"
           arrow="true"
           range="Where Entrepreneurship Meets Real Estate."
@@ -32,7 +31,7 @@ const AboutUs = () => {
       <Content>
         <Interior
           text="Turning Vision into Landmarks"
-          title="Under the guidance of Afnan Ahmed Siddique, an experienced entrepreneur recognized for his contributions to business and real estate across Pakistan and the UAE, Guru Homes Dubai stands on a foundation of discipline and long-term vision. His background in entrepreneurship and real estate gives the firm a competitive edge ensuring every client interaction is built on credibility, professionalism, and integrity."
+          title="Under the leadership of Afnan Ahmed Siddique, an experienced entrepreneur in business and real estate across Dubai, the UAE, and Pakistan, Guru Homes Dubai combines discipline and long-term vision with expert real estate knowledge. His extensive background ensures that every client interaction reflects professionalism, credibility, and trusted guidance in luxury residential, commercial, and investment properties."
           backgroundImg="bg19.jpeg"
         />
       </Content>
