@@ -146,7 +146,7 @@ const FloatingButtons = () => {
   };
 
   const handleEmail = () => {
-    window.location.href = 'mailto:info@guruhomes.ae';
+    window.location.href = 'info@guruhomes.ae';
   };
 
   return (

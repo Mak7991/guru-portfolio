@@ -14,7 +14,7 @@ const Footer = ({ bottom }) => {
           <a href="/">Guru Homes &copy; {getCurrentYear()}</a>
         </div>
         <div>
-          <a href="/Accomplishments">Portfolio</a>
+          <a href="/Portfolio">Portfolio</a>
           <a href="/AboutUs">About Us</a>
         </div>
       </Content>
