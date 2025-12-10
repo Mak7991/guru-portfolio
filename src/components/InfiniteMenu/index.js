@@ -961,9 +961,9 @@ export default function InfiniteMenu({ items = [] }) {
 
           <p className={`face-description ${isMoving ? 'inactive' : 'active'}`}> {activeItem.description}</p>
 
-          <div onClick={handleButtonClick} className={`action-button ${isMoving ? 'inactive' : 'active'}`}>
+          {/* <div onClick={handleButtonClick} className={`action-button ${isMoving ? 'inactive' : 'active'}`}>
             <p className="action-button-icon">&#x2197;</p>
-          </div>
+          </div> */}
         </>
       )}
     </div>
