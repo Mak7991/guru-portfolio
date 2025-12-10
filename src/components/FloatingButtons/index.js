@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import WhatsAppIcon from '@mui/icons-material/WhatsApp';
@@ -134,6 +135,7 @@ const ScrollButton = styled(FloatingButton)`
 
 const FloatingButtons = () => {
   const [isExpanded, setIsExpanded] = useState(false);
+  const navigate = useNavigate();
 
   const handleToggleExpand = () => {
     setIsExpanded(!isExpanded);
@@ -146,7 +148,7 @@ const FloatingButtons = () => {
   };
 
   const handleEmail = () => {
-    window.location.href = 'mailto:info@guruhomes.ae';
+    navigate('/Contact');
   };
 
   return (

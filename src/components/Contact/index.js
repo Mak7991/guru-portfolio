@@ -76,6 +76,7 @@ const Contact = () => {
         news_offers: formData.newsOffers ? "Yes" : "No",
         privacy_policy: formData.privacyPolicy ? "Accepted" : "Not Accepted",
         to_name: "Guru Homes Team",
+        to_email: "info@guruhomes.ae",
         message: `Contact request from ${formData.name} (${formData.phone}).\nNews & Offers: ${formData.newsOffers ? "Yes" : "No"}\nPrivacy Policy: ${formData.privacyPolicy ? "Accepted" : "Not Accepted"}`,
       };
 
